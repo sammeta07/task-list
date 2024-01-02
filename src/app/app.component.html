@@ -1,3 +1,51 @@
 
-<h1>hari</h1>
-<router-outlet></router-outlet>
+
+
+<div id="container">
+  <div id="createForm"> 
+    <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit(createTaskForm)">
+        <mat-card>
+            <mat-card-title> <p>Create Task</p> </mat-card-title>
+            <mat-card-content >
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field appearance="outline" >
+                    <mat-label> Task Name </mat-label>
+                    <input matInput formControlName="name" name="name" type="text">
+                    <mat-icon matSuffix color="grey">portrait</mat-icon>
+                </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field appearance="outline">
+                    <mat-label> Description </mat-label>
+                    <input matInput formControlName="description" name="description" type="text">
+                    <mat-icon color="grey" matSuffix>description</mat-icon>
+                </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Due Date</mat-label>
+                    <input matInput [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker>
+                      <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Ok</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+  
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="createTaskForm.invalid">Save</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+  </div>
+</div>
+<br>
+<div id="container">
+  <router-outlet></router-outlet>
+</div>

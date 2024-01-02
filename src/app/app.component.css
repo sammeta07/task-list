@@ -1,0 +1,13 @@
+
+#container{
+  width: 100%;
+  /* height: 100vh; */
+  background-color: aquamarine;
+  padding: 10px;
+}
+#createForm{
+  margin: auto;
+}
+mat-form-field{
+  width: 100%;
+}
