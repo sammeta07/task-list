@@ -21,6 +21,7 @@ export class TaskListComponent implements OnInit, AfterViewInit {
   dataSource!: MatTableDataSource<TaskForm>;
   displayedColumns: string[] = ['name', 'description', 'dueDate', 'action'];
   allListData:TaskForm[]=[];
+  searchText!:string;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
@@ -55,6 +56,14 @@ export class TaskListComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  clearSearch(){
+    this.searchText='';
+    this.TS.dataChange.subscribe(res=>{
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
 
@@ -98,3 +107,4 @@ export class TaskListComponent implements OnInit, AfterViewInit {
     });
   }
 }
+
