@@ -44,8 +44,8 @@ export class TaskListComponent implements OnInit, AfterViewInit {
   getData(){
     this.TS.dataChange.subscribe(res=>{
       this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -61,8 +61,8 @@ export class TaskListComponent implements OnInit, AfterViewInit {
     this.searchText='';
     this.TS.dataChange.subscribe(res=>{
       this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -79,6 +79,9 @@ export class TaskListComponent implements OnInit, AfterViewInit {
       }else{
         this.TS.dataChange.subscribe(res=>{
           this.allListData=res;
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
         });
         let index = this.allListData.findIndex(n => n.id==result.id);
         this.allListData.splice(index,1);
@@ -99,6 +102,9 @@ export class TaskListComponent implements OnInit, AfterViewInit {
         result.name=  result.name.trim();
         this.TS.dataChange.subscribe(res=>{
           this.allListData=res;
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
         });
         let index = this.allListData.findIndex(n => n.id==row.id);
         this.allListData[index]=result;

@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ChartRoutingModule } from './chart-routing.module';
-import { ChartComponent } from './chart.component';
+import { ChartsComponent } from './chart.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
   declarations: [
-    ChartComponent
+    ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -16,4 +15,4 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     NgApexchartsModule
   ]
 })
-export class ChartModule { }
+export class ChartsModule { }

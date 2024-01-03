@@ -38,7 +38,7 @@
               <!-- <div class="col-md-4"> -->
                 <mat-form-field appearance="outline">
                   <mat-label>Due Date</mat-label>
-                  <input matInput [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
+                  <input matInput [min]="todayDate" [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
                   <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                   <mat-datepicker #datepicker>
                     <mat-datepicker-actions>

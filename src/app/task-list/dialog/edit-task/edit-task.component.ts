@@ -12,7 +12,7 @@ import { TaskServiceService } from '../../task-service.service';
 export class EditTaskComponent implements OnInit {
   editData!:TaskForm;
   createTaskForm!: FormGroup;
-  // allListData:TaskForm[]=[];
+  todayDate:Date = new Date();
   constructor(
     private fb: FormBuilder,
     public TS:TaskServiceService,

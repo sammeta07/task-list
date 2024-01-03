@@ -1,12 +1,15 @@
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
 export interface TaskForm{
   name:string;
   description:string;
   dueDate:any;
   id:number;
+}
+export interface weekDaydata{
+  mon:number;
+  tue:number;
+  wed:number;
+  thu:number;
+  fri:number;
+  sat:number;
+  sun:number;
 }

@@ -3,9 +3,13 @@
 
 <div id="container">
   <div id="createForm"> 
-    <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit(createTaskForm)">
+    <form [formGroup]="createTaskForm">
         <mat-card>
-            <mat-card-title style="padding-left: 10px;"> <p>Create New Task</p> </mat-card-title>
+          
+            <div id="routeBtn">
+                <mat-card-title> <p>Create New Task</p> </mat-card-title>
+                <button mat-raised-button color="accent" (click)="navigate()">{{btnName}}</button>
+            </div>
             <mat-card-content >
               <div class="row">
                 <div class="col-md-4">
@@ -39,7 +43,7 @@
   
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit" [disabled]="createTaskForm.invalid">Save</button>
+                <button  (click)="onSubmit(createTaskForm)" mat-raised-button color="primary" type="submit" [disabled]="createTaskForm.invalid">Save</button>
             </mat-card-actions>
         </mat-card>
     </form>
@@ -49,5 +53,3 @@
 <div id="container">
   <router-outlet></router-outlet>
 </div>
-
-
