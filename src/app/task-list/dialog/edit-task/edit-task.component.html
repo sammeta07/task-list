@@ -18,24 +18,24 @@
 <div id="createForm"> 
   <form [formGroup]="createTaskForm">
       <mat-card>
-          <mat-card-title> <p>Edit Task</p> </mat-card-title>
-          <mat-card-content >
-            <div class="row">
-              <div class="col-md-4">
+          <mat-card-title style="margin: auto;"> <h1>Edit Task</h1> </mat-card-title>
+          <mat-card-content style="border: 1px solid rgb(231, 222, 222); padding: 10px; margin: 5px; border-radius: 5px;">
+            <!-- <div class="row"> -->
+              <!-- <div class="col-md-4"> -->
                 <mat-form-field appearance="outline" >
                   <mat-label> Task Name </mat-label>
                   <input matInput formControlName="name" name="name" type="text">
                   <mat-icon matSuffix color="grey">portrait</mat-icon>
               </mat-form-field>
-              </div>
-              <div class="col-md-4">
+              <!-- </div> -->
+              <!-- <div class="col-md-4"> -->
                 <mat-form-field appearance="outline">
                   <mat-label> Description </mat-label>
                   <input matInput formControlName="description" name="description" type="text">
                   <mat-icon color="grey" matSuffix>description</mat-icon>
               </mat-form-field>
-              </div>
-              <div class="col-md-4">
+              <!-- </div> -->
+              <!-- <div class="col-md-4"> -->
                 <mat-form-field appearance="outline">
                   <mat-label>Due Date</mat-label>
                   <input matInput [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
@@ -47,8 +47,8 @@
                     </mat-datepicker-actions>
                   </mat-datepicker>
                 </mat-form-field>
-              </div>
-            </div>
+              <!-- </div> -->
+            <!-- </div> -->
 
           </mat-card-content>
           <mat-card-actions>

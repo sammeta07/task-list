@@ -1,5 +1,5 @@
-<div mat-dialog-content>
-  <p>Are yoy sure , want to delete task {{data.name}}</p>
+<div mat-dialog-content style="border: 1px solid rgb(231, 222, 222); padding: 10px; margin: 5px; border-radius: 5px;">
+  <p>Are yoy sure , want to delete task <span style="font-weight: 500;">{{data.name}}</span></p>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button color="warn" (click)="onDelete(data)">Delete</button>

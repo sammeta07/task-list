@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChartRoutingModule } from './chart-routing.module';
 import { ChartComponent } from './chart.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ChartComponent } from './chart.component';
   ],
   imports: [
     CommonModule,
-    ChartRoutingModule
+    ChartRoutingModule,
+    NgApexchartsModule
   ]
 })
 export class ChartModule { }

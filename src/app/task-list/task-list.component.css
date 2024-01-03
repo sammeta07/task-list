@@ -7,6 +7,6 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
+.mdc-data-table__cell{
+  padding: 0 0 0 5px;
 }
