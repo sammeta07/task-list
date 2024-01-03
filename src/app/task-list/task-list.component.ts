@@ -74,7 +74,7 @@ export class TaskListComponent implements OnInit, AfterViewInit {
       disableClose: true 
     });
     dialogRef.afterClosed().subscribe((result:any) => {
-      console.log('The dialog was closed',result);
+      // console.log('The dialog was closed',result);
       if(result=='CANCEL'){
       }else{
         this.TS.dataChange.subscribe(res=>{
@@ -95,7 +95,7 @@ export class TaskListComponent implements OnInit, AfterViewInit {
       disableClose: true 
     });
     dialogRef.afterClosed().subscribe((result:any) => {
-      console.log('The dialog was closed',result);
+      // console.log('The dialog was closed',result);
       if(result=='CANCEL'){
       }else{
         result.description=  result.description.trim();

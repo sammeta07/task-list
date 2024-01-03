@@ -156,7 +156,7 @@ export class ChartsComponent implements OnInit{
   getData(){
     this.TS.dataChange.subscribe(res=>{
       this.allListData = res;
-      console.log(this.allListData);
+      // console.log(this.allListData);
 
       this.allListData.sort(function(a, b) {
         var c:any = new Date(a.dueDate);
@@ -184,8 +184,8 @@ export class ChartsComponent implements OnInit{
           this.tempday.push(this.temp[p]);
         }
       }
-      console.log(this.tempCount);
-      console.log(this.tempday);
+      // console.log(this.tempCount);
+      // console.log(this.tempday);
     });
     this.tempCount=this.tempCount.slice(0,7);
     this.tempday=this.tempday.slice(0,7);

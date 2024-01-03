@@ -19,7 +19,7 @@ export class EditTaskComponent implements OnInit {
     public dialogRef: MatDialogRef<EditTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TaskForm,
   ) {
-    console.log('dialog data',this.data);
+    // console.log('dialog data',this.data);
     this.editData=JSON.parse(JSON.stringify(this.data));
   }
 
@@ -27,7 +27,7 @@ export class EditTaskComponent implements OnInit {
     this.dialogRef.close(data);
   }
   onSave(){
-    console.log(this.data);
+    // console.log(this.data);
     this.dialogRef.close(this.data);
   }
 
@@ -44,7 +44,7 @@ export class EditTaskComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log(this.createTaskForm , form.value);
+    // console.log(this.createTaskForm , form.value);
        this.dialogRef.close(form.value);
   }
 }

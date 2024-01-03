@@ -12,7 +12,7 @@ export class DeleteTaskComponent {
     public dialogRef: MatDialogRef<DeleteTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TaskForm,
   ) {
-    console.log('dialog data',this.data);
+    // console.log('dialog data',this.data);
   }
 
   onCancel(data:string){

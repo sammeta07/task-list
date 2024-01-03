@@ -61,9 +61,8 @@ export class AppComponent implements OnInit {
     this.allListData[this.allListData.length-1].id= maxId+1;
     this.TS.dataChange.next(this.allListData);
     this.createTaskForm.reset();
-    console.log( this.allListData);
-
-    localStorage.setItem('x',JSON.stringify(this.allListData))
+    // console.log( this.allListData);
+    // localStorage.setItem('x',JSON.stringify(this.allListData))
   }
  
   event$:any;
