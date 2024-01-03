@@ -30,22 +30,19 @@ export class TaskListComponent implements OnInit, AfterViewInit {
     public TS:TaskServiceService,
     public dialog: MatDialog,
     ) {
+    }
     
-  }
-
-
+    
   ngOnInit(): void {
     this.getData();
   }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
   getData(){
     this.TS.dataChange.subscribe(res=>{
       this.dataSource = new MatTableDataSource(res);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
     });
   }
 

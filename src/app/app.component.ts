@@ -70,12 +70,17 @@ export class AppComponent implements OnInit {
   currentPath:string='';
   navigate(){
     this.currentPath=window.location.pathname;
-    if(this.currentPath=='/task-list'){
-      this.router.navigate(['/', 'chart']);
-      this.btnName='Show List'
-    }else if(this.currentPath=='/chart'){
+    console.log(window.location.pathname);
+    // this.router.navigate(['/', 'chart']);
+    // this.btnName='Show List'
+
+
+    if(this.btnName=='Show List'){
       this.router.navigate(['/', 'task-list']);
       this.btnName='Show Chart'
+    }else if(this.btnName=='Show Chart'){
+      this.router.navigate(['/', 'chart']);
+      this.btnName='Show List'
     }
   }
 
