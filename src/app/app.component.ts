@@ -90,7 +90,7 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/', 'chart']);
       this.btnName='Show List';
     }
-    this.clearValidators();
+    // this.clearValidators();
   }
 
   clearValidators(){
