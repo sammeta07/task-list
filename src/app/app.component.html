@@ -1,15 +1,16 @@
 
 
 
-<div id="container">
-  <div id="createForm"> 
+<div id="container"  style = "display: flex; justify-content:flex-end">
+  <button style="width: 200px;"  mat-raised-button color="accent" (click)="navigate()">{{btnName}}</button>
+</div>
+<br>
+<div id="container" *ngIf="btnName =='Show Chart'">
+  <div id="createForm" > 
     <form [formGroup]="createTaskForm">
         <mat-card>
           
-            <div id="routeBtn">
-                <mat-card-title> <p>Create New Task</p> </mat-card-title>
-                <button style="width: 200px;" mat-raised-button color="accent" (click)="navigate()">{{btnName}}</button>
-            </div>
+            <mat-card-title style="margin-left: 10px;"> <p>Create New Task</p> </mat-card-title>
             <mat-card-content >
               <div class="row">
                 <div class="col-md-4">
@@ -29,7 +30,7 @@
                 <div class="col-md-4">
                   <mat-form-field appearance="outline">
                     <mat-label>Due Date</mat-label>
-                    <input matInput [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
+                    <input matInput  [min]="todayDate" [matDatepicker]="datepicker" [readonly]="true" formControlName="dueDate" name="dueDate">
                     <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                     <mat-datepicker #datepicker>
                       <mat-datepicker-actions>

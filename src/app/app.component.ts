@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { FormControl, FormGroup } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskForm } from './shared/task.model';
 import { TaskServiceService } from './task-list/task-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getAllListdata();
     this.initializeLoginForm();
+    console.log(this.createTaskForm );
   }
 
   initializeLoginForm(){
@@ -60,28 +61,35 @@ export class AppComponent implements OnInit {
     this.allListData.push(this.createTaskForm.value);
     this.allListData[this.allListData.length-1].id= maxId+1;
     this.TS.dataChange.next(this.allListData);
+
+    console.log(this.createTaskForm , form.value);
+
     this.createTaskForm.reset();
+
     // console.log( this.allListData);
     // localStorage.setItem('x',JSON.stringify(this.allListData))
   }
  
   event$:any;
   btnName:string='Show Chart';
-  currentPath:string='';
   navigate(){
-    this.currentPath=window.location.pathname;
-    console.log(window.location.pathname);
-    // this.router.navigate(['/', 'chart']);
-    // this.btnName='Show List'
-
-
     if(this.btnName=='Show List'){
       this.router.navigate(['/', 'task-list']);
       this.btnName='Show Chart'
     }else if(this.btnName=='Show Chart'){
       this.router.navigate(['/', 'chart']);
-      this.btnName='Show List'
+      this.btnName='Show List';
     }
+    this.clearValidators();
+  }
+
+  clearValidators(){
+    this.createTaskForm.controls['name'].removeValidators([Validators.required]);
+    this.createTaskForm.controls['name'].updateValueAndValidity();
+    this.createTaskForm.controls['description'].removeValidators([Validators.required]);
+    this.createTaskForm.controls['description'].updateValueAndValidity();
+    this.createTaskForm.controls['dueDate'].removeValidators([Validators.required]);
+    this.createTaskForm.controls['dueDate'].updateValueAndValidity();
   }
 
 } 
