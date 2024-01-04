@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
 
   initializeLoginForm(){
     this.createTaskForm = this.fb.group({
-      name        : [null, Validators.required],
-      description : [null, Validators.required],
+      name        : [null, [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/),]],
+      description : [null, [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/),]],
       dueDate     : [null, Validators.required],
     });
   }
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    // console.log(this.createTaskForm , form.value);
+    // console.log(this.createTaskForm.value);
     let maxId=0;
     this.createTaskForm.controls['name'].setValue(this.createTaskForm.value.name.trim());
     this.createTaskForm.controls['description'].setValue(this.createTaskForm.value.description.trim());
@@ -57,9 +57,17 @@ export class AppComponent implements OnInit {
       maxId= this.TS.findMaxId( this.allListData);
     }else{
       maxId=0;
-    }    
+    }  
+    // this.createTaskForm.value.dueDate=JSON.stringify(this.createTaskForm.value.dueDate);
     this.allListData.push(this.createTaskForm.value);
     this.allListData[this.allListData.length-1].id= maxId+1;
+    console.log(this.allListData);
+    this.allListData.forEach(item=>{
+      if(typeof(item.dueDate)!='string'){
+        item.dueDate=JSON.parse(JSON.stringify(item.dueDate));
+      }
+    });
+    
     this.TS.dataChange.next(this.allListData);
 
     console.log(this.createTaskForm , form.value);
@@ -93,6 +101,8 @@ export class AppComponent implements OnInit {
     this.createTaskForm.controls['dueDate'].removeValidators([Validators.required]);
     this.createTaskForm.controls['dueDate'].updateValueAndValidity();
   }
+
+  
 
 } 
 

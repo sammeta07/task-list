@@ -37,8 +37,8 @@ export class EditTaskComponent implements OnInit {
 
   initializeLoginForm(){
     this.createTaskForm = this.fb.group({
-      name        : [this.editData.name, Validators.required],
-      description : [this.editData.description, Validators.required],
+      name        : [this.editData.name, [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      description : [this.editData.description, [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       dueDate     : [this.editData.dueDate, Validators.required],
     });
   }
