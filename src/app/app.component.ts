@@ -74,9 +74,11 @@ export class AppComponent implements OnInit {
   btnName:string='Show Chart';
   navigate(){
     if(this.btnName=='Show List'){
+      this.TS.chartCheck=false;
       this.router.navigate(['/', 'task-list']);
       this.btnName='Show Chart'
     }else if(this.btnName=='Show Chart'){
+      this.TS.chartCheck=true;
       this.router.navigate(['/', 'chart']);
       this.btnName='Show List';
     }
